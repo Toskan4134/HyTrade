@@ -41,7 +41,7 @@ A Hytale server plugin for safe player-to-player item trading with an interactiv
 
 ## Configuration
 
-Configuration is automatically saved to `plugins/HyTrade/HyTrade.json`
+Configuration is automatically saved to `mods/Toskan4134_HyTrade/HyTrade.json`
 
 | Option | Default | Description                                           |
 |--------|---------|-------------------------------------------------------|
@@ -208,6 +208,6 @@ Toskan4134
 
 ## Links
 
-- **GitHub**: [Repository URL]
+- **GitHub**: https://github.com/Toskan4134/HyTrade
 - **CurseForge**: [CurseForge URL]
 - **Issues**: [GitHub Issues URL]

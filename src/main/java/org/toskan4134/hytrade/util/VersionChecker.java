@@ -20,7 +20,7 @@ public class VersionChecker {
     private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     private static final String GITHUB_API_URL = "https://api.github.com/repos/Toskan4134/HyTrade/releases/latest";
-    private static final String CURSEFORGE_API_URL = "https://api.cfwidget.com/1432385"; // Using CFWidget public API
+    private static final String CURSEFORGE_API_URL = "https://api.cfwidget.com/1455841"; // Using CFWidget public API
 
     private static final Pattern GITHUB_VERSION_PATTERN = Pattern.compile("\"tag_name\"\\s*:\\s*\"v?([^\"]+)\"");
     private static final Pattern CURSEFORGE_VERSION_PATTERN = Pattern.compile("\"displayName\"\\s*:\\s*\"[^\"]*?([0-9]+\\.[0-9]+\\.[0-9]+[^\"]*?)\"");
