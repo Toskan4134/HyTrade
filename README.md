@@ -87,6 +87,7 @@ trade.request.received=&eTrade request received from &f{initiator}&e. Use &6/tra
 trade.status.countdown=&aBoth accepted! Completing in &f{seconds}s&a...
 ui.status.notEnoughSpace=You don't have enough inventory space
 ```
+> You can find some messages.json examples [HERE](github.com/Toskan4134/EasyTrade/tree/main/examples/messages)
 
 ## Trading UI
 
