@@ -1,4 +1,4 @@
-# HyTrade
+# EasyTrade
 
 A Hytale server plugin for safe player-to-player item trading with an interactive UI and atomic transactions.
 
@@ -27,21 +27,21 @@ A Hytale server plugin for safe player-to-player item trading with an interactiv
 
 | Command | Description | Permission |
 |---------|-------------|------------|
-| `/trade request <player>` | Send a trade request to another player | `hytrade.trade.request` |
-| `/trade accept` | Accept a pending trade request | `hytrade.trade.accept` |
-| `/trade decline` | Decline a pending trade request | `hytrade.trade.decline` |
-| `/trade cancel` | Cancel current trade | `hytrade.trade.cancel` |
-| `/trade confirm` | Confirm trade after countdown | `hytrade.trade.confirm` |
-| `/trade open` | Open trading UI | `hytrade.trade.open` |
-| `/trade reload` | Reload config and messages | `hytrade.admin.reload` |
-| `/trade test` | Start solo test trade (debug mode only) | `hytrade.admin.test` |
-| `/trade help` | Show help message | `hytrade.trade.help` |
+| `/trade request <player>` | Send a trade request to another player | `easytrade.trade.request` |
+| `/trade accept` | Accept a pending trade request | `easytrade.trade.accept` |
+| `/trade decline` | Decline a pending trade request | `easytrade.trade.decline` |
+| `/trade cancel` | Cancel current trade | `easytrade.trade.cancel` |
+| `/trade confirm` | Confirm trade after countdown | `easytrade.trade.confirm` |
+| `/trade open` | Open trading UI | `easytrade.trade.open` |
+| `/trade reload` | Reload config and messages | `easytrade.admin.reload` |
+| `/trade test` | Start solo test trade (debug mode only) | `easytrade.admin.test` |
+| `/trade help` | Show help message | `easytrade.trade.help` |
 
 **Note:** All permissions default to true for all players except admin commands.
 
 ## Configuration
 
-Configuration is automatically saved to `mods/Toskan4134_HyTrade/HyTrade.json`
+Configuration is automatically saved to `mods/Toskan4134_EasyTrade/EasyTrade.json`
 
 | Option | Default | Description                                           |
 |--------|---------|-------------------------------------------------------|
@@ -63,7 +63,7 @@ Configuration is automatically saved to `mods/Toskan4134_HyTrade/HyTrade.json`
 
 ## Messages
 
-Messages are stored in `plugins/HyTrade/messages.json` and support color codes and placeholders.
+Messages are stored in `plugins/EasyTrade/messages.json` and support color codes and placeholders.
 
 ### Color Codes
 
@@ -130,7 +130,7 @@ The trading UI is divided into sections:
 
 ## Permissions
 
-All permissions follow the pattern `hytrade.<category>.<command>`.
+All permissions follow the pattern `easytrade.<category>.<command>`.
 You can modify permissions using `/perm group/user list/add/remove <group/user>`
 
 ### Default Permissions (All Players)
@@ -138,13 +138,13 @@ You can modify permissions using `/perm group/user list/add/remove <group/user>`
 These permissions should be granted to everyone:
 
 ```
-hytrade.trade.request   - Send trade requests
-hytrade.trade.accept    - Accept trade requests
-hytrade.trade.decline   - Decline trade requests
-hytrade.trade.cancel    - Cancel active trades
-hytrade.trade.confirm   - Confirm trades after countdown
-hytrade.trade.open      - Open trading UI
-hytrade.trade.help      - View help message
+easytrade.trade.request   - Send trade requests
+easytrade.trade.accept    - Accept trade requests
+easytrade.trade.decline   - Decline trade requests
+easytrade.trade.cancel    - Cancel active trades
+easytrade.trade.confirm   - Confirm trades after countdown
+easytrade.trade.open      - Open trading UI
+easytrade.trade.help      - View help message
 ```
 
 ### Admin Permissions
@@ -152,16 +152,16 @@ hytrade.trade.help      - View help message
 These permissions should be restricted to administrators/operators:
 
 ```
-hytrade.admin.reload    - Reload configuration and messages
-hytrade.admin.test      - Start solo test trades (requires debug mode)
+easytrade.admin.reload    - Reload configuration and messages
+easytrade.admin.test      - Start solo test trades (requires debug mode)
 ```
 
 ### Default Behavior
 
 **By default, NO permissions are required:**
 - ✅ All players can use all trading commands (no permissions needed)
-- ❌ Only `/trade reload` requires permissions (`hytrade.admin.reload`)
-- 🐞 Command `/trade test` requires `debug=true` on config and permissions (`hytrade.admin.test`)
+- ❌ Only `/trade reload` requires permissions (`easytrade.admin.reload`)
+- 🐞 Command `/trade test` requires `debug=true` on config and permissions (`easytrade.admin.test`)
 
 **You only need to configure permissions if you want to RESTRICT access to trading commands.**
 
@@ -171,7 +171,7 @@ hytrade.admin.test      - Start solo test trades (requires debug mode)
 2. Place the JAR in your server's `mods` folder
 3. Start/restart the server
 4. Configuration and messages files will be auto-generated
-5. Customize messages in `plugins/HyTrade/messages.json` and configuration in `mods/Toskan4134_HyTrade/HyTrade.json` if desired
+5. Customize messages in `plugins/EasyTrade/messages.json` and configuration in `mods/Toskan4134_EasyTrade/EasyTrade.json` if desired
 
 ## Building
 
@@ -208,6 +208,5 @@ Toskan4134
 
 ## Links
 
-- **GitHub**: https://github.com/Toskan4134/HyTrade
-- **CurseForge**: [CurseForge URL]
-- **Issues**: [GitHub Issues URL]
+- **GitHub**: https://github.com/Toskan4134/EasyTrade
+- **CurseForge**: https://www.curseforge.com/hytale/mods/easytrade

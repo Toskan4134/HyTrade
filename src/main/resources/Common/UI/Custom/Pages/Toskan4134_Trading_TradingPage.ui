@@ -46,7 +46,7 @@ $C.@PageOverlay {
         #Title {
           Group {
             $C.@Title #TitleLabel{
-              @Text = "HYTRADE";
+              @Text = "EASYTRADE";
             }
           }
         }

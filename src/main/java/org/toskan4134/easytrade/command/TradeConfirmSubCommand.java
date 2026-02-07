@@ -1,0 +1,75 @@
+package org.toskan4134.easytrade.command;
+
+import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import org.toskan4134.easytrade.messages.TradeMessages;
+import org.toskan4134.easytrade.trade.TradeManager;
+import org.toskan4134.easytrade.trade.TradeSession;
+import org.toskan4134.easytrade.trade.TradeState;
+
+import javax.annotation.Nonnull;
+import java.util.Optional;
+
+import static org.toskan4134.easytrade.constants.TradeConstants.DEFAULT_PERMISSION;
+
+/**
+ * Subcommand: /trade confirm
+ * Confirm the trade after countdown completes.
+ */
+public class TradeConfirmSubCommand extends AbstractPlayerCommand {
+
+    private final TradeManager tradeManager;
+
+    public TradeConfirmSubCommand(TradeManager tradeManager) {
+        super("confirm", "Confirm the trade after countdown");
+        addAliases("finalize", "complete");
+        this.requirePermission(DEFAULT_PERMISSION + "confirm");
+
+        this.tradeManager = tradeManager;
+    }
+
+    @Override
+    protected boolean canGeneratePermission() {
+        return false;
+    }
+
+    @Override
+    protected void execute(@Nonnull CommandContext ctx,
+                           @Nonnull Store<EntityStore> store,
+                           @Nonnull Ref<EntityStore> playerEntityRef,
+                           @Nonnull PlayerRef playerRef,
+                           @Nonnull World world) {
+
+        Optional<TradeSession> optSession = tradeManager.getSession(playerRef);
+        if (optSession.isEmpty()) {
+            ctx.sender().sendMessage(TradeMessages.notInTrade());
+            return;
+        }
+
+        TradeSession session = optSession.get();
+
+        if (session.getState() != TradeState.BOTH_ACCEPTED_COUNTDOWN) {
+            ctx.sender().sendMessage(TradeMessages.errorAcceptFirst());
+            return;
+        }
+
+        if (!session.isCountdownComplete()) {
+            long remaining = session.getRemainingCountdownMs() / 1000;
+            ctx.sender().sendMessage(TradeMessages.statusCountdown(remaining));
+            return;
+        }
+
+        TradeSession.TradeResult result = tradeManager.confirmTrade(playerRef, store, playerEntityRef);
+
+        if (result.success) {
+            ctx.sender().sendMessage(TradeMessages.confirmSuccess());
+        } else {
+            ctx.sender().sendMessage(TradeMessages.statusFailed(result.message));
+        }
+    }
+}

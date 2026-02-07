@@ -1,6 +1,6 @@
 {
     "Group": "Toskan4134",
-    "Name": "HyTrade",
+    "Name": "EasyTrade",
     "Version": "1.0.0",
     "Description": "Player-to-player trading system with atomic transactions and secure item exchange",
     "Authors": [
@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "org.toskan4134.hytrade.TradingPlugin",
+    "Main": "org.toskan4134.easytrade.TradingPlugin",
     "IncludesAssetPack": true
 }
